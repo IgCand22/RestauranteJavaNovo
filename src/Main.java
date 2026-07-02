@@ -2,27 +2,31 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 void main() {
 
-    Estoque galpaoPrincipal = new Estoque();
+    Restaurante pizzaria = new Restaurante();
 
     Alimentos ali1 = new Alimentos("Ovo", "Proteina");
+    Alimentos ali2 = new Alimentos("Carne", "Proteina");
+    Alimentos ali3 = new Alimentos("Arroz", "Carboidrato");
 
-    galpaoPrincipal.darEntradaAlimento(ali1);
+    pizzaria.darEntradaAlimento(ali1);
+    pizzaria.darEntradaAlimento(ali2);
+    pizzaria.darEntradaAlimento(ali3);
 
     Pratos prat1 = new Pratos("Omelete");
+    Pratos prat2 = new Pratos("Risoto");
 
     prat1.addIngredientes(ali1);
+    prat2.addIngredientes(ali2);
+    prat2.addIngredientes(ali3);
 
-    Cardapio card1 = new Cardapio();
+    pizzaria.adicionarPratoNoCardapio(prat1);
+    pizzaria.adicionarPratoNoCardapio(prat2);
 
-    card1.addPratos(prat1);
+    pizzaria.verCardapio();
 
-    card1.mostrarPratos(galpaoPrincipal);
+    pizzaria.fazerPedido(prat1);
 
-    Pedido ped1 = new Pedido(1);
+    pizzaria.fazerPedido(prat2);
 
-    ped1.fazerPedido(prat1, galpaoPrincipal);
-
-    card1.mostrarPratos(galpaoPrincipal);
-
-
+    pizzaria.verPedidos();
 }

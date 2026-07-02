@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class Estoque {
-    String nome;
-    Collection<Alimentos> estoque = new ArrayList<>();
+    private String nome;
+    private Collection<Alimentos> estoque = new ArrayList<>();
 
     public void darEntradaAlimento(Alimentos alimento) {
         estoque.add(alimento);
@@ -12,7 +12,7 @@ public class Estoque {
     public boolean temAlimento(String nomeAlimento) {
         int i = 0;
         for (Alimentos atual : estoque) {
-            if (atual.nome.equalsIgnoreCase(nomeAlimento)) {
+            if (atual.getNome().equalsIgnoreCase(nomeAlimento)) {
                 return true;
             }
         }
@@ -21,7 +21,7 @@ public class Estoque {
 
     public void liberarAlimento(String nomeAlimento) {
         for (Alimentos atual : estoque) {
-            if (atual.nome.equalsIgnoreCase(nomeAlimento)) {
+            if (atual.getNome().equalsIgnoreCase(nomeAlimento)) {
                 estoque.remove(atual);
                 return;
             }
@@ -31,7 +31,7 @@ public class Estoque {
 
     public void mostrarEstoque() {
         for (Alimentos atual : estoque) {
-            System.out.println(atual.nome);
+            System.out.println(atual.getNome());
         }
         System.out.println(" ");
     }

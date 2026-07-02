@@ -2,11 +2,19 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class Pratos {
-    String nome;
-    Collection<Alimentos> ingredientes = new ArrayList<>();
+    private String nome;
+    private Collection<Alimentos> ingredientes = new ArrayList<>();
 
     public Pratos (String nome) {
         this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public Collection<Alimentos> getIngredientes() {
+        return ingredientes;
     }
 
     public void addIngredientes(Alimentos alimento) {
@@ -16,7 +24,7 @@ public class Pratos {
     public void mostrarIngredientes() {
         System.out.println("| "+nome+" |");
         for (Alimentos atual : ingredientes) {
-            System.out.println(atual.nome + " - " + atual.categoria);
+            System.out.println(atual.getNome() + " - " + atual.getCategoria());
         }
         System.out.println(" ");
     }
@@ -24,7 +32,7 @@ public class Pratos {
     public boolean estaDisponivel(Estoque armazem) {
         int i = 0;
         for(Alimentos atual : ingredientes) {
-            if (armazem.temAlimento(atual.nome)) {
+            if (armazem.temAlimento(atual.getNome())) {
                 i++;
             }
             if (i == ingredientes.size()) {
